@@ -1,5 +1,5 @@
 # nuxt-with-apache-issue
-Reproduction of a browser error that we get with Nuxt behind Apache.
+Reproduction of a browser error that we get with Nuxt 3.12.3 behind Apache.
 
 ## What is the issue
 
@@ -30,3 +30,8 @@ Reproduction of a browser error that we get with Nuxt behind Apache.
 ### (5) see no error if you open without Apache
 * after runnin `npm run dev` open your browser on `http://localhost:3000`
 * see the page loaded and no error
+
+# Some further notes
+* This problem did not occur in Nuxt 3.11.3 but appears after upgrading to 3.12.3
+* If you remove module `@nuxtjs/i18n` from nuxt.config.json, the error disappears. I do however not think that this is a i18n issue as many people use @nuxtjs/i18n and did not report this issue.
+I expect other modules to get this same issue.
