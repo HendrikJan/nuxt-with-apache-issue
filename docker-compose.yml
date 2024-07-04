@@ -1,0 +1,26 @@
+services:
+  mynode:
+    hostname: mynode.docker.dev
+    container_name: mynode
+    build:
+      context: .
+      dockerfile: docker/nodejs.dockerfile
+    volumes:
+      - ./:/var/app
+    ports:
+      - '3000:3000'
+    networks:
+      - default
+    tmpfs: /tmp
+  apache:
+    hostname: myapache.docker.dev
+    container_name: myapache
+    build:
+      context: .
+      dockerfile: docker/apache.dockerfile
+    ports:
+      - '4000:80'
+    volumes:
+      - ./docker/apache/extra:/usr/local/apache2/conf/extra
+    networks:
+      - default
